@@ -1,0 +1,124 @@
+03/28
+1:分析网站的表
+商品表
+栏目表
+用户表
+文章表
+留言表
+评论表
+
+
+2:建立商品表,栏目表,用户表
+商品表:
+商品主键:	goods_id
+商品货号:	goods_sn
+栏目id:		cat_id
+品牌id:		brand_id
+商品名:		goods_name varchar(30)
+本店价格:	shop_price decimal(9,2)
+市场价格:	market_price
+库存量:		goods_number
+点击量:		click_count
+商品重量:	goods_weight
+简短描述:	goods_brief
+商品描述:	goods_desc text
+小图片:		thumb_img
+大图片:		goods_img
+原始图片:	ori_img
+是否上架:	is_on_sale
+是否删除:	is_delete
+是否精品:	is_best
+是否新品:	is_new
+是否热卖:	is_hot
+发布时间:	add_time
+上次修改:	last_update
+
+create table goods (
+goods_id int unsigned primary key auto_increment,
+goods_sn char(15) not null default '',
+cat_id smallint not null default 0,
+brand_id smallint  not null default 0,
+goods_name varchar(30)  not null default '',
+shop_price decimal(9,2)  not null default 0.0,
+market_price decimal(9,2)  not null default 0.0,
+goods_number smallint  not null default 1,
+click_count mediumint not null default 0,
+goods_weight decimal(6,3) not null default 0.0,
+goods_brief varchar(100) not null default '',
+goods_desc text not null,
+thumb_img varchar(30) not null default '',
+goods_img varchar(30) not null default '',
+ori_img varchar(30) not null default '',
+is_on_sale tinyint not null default 1,
+is_delete tinyint not null default 0,
+is_best tinyint not null default 0,
+is_new tinyint not null default 0,
+is_hot tinyint not null default 0,
+add_time int unsigned not null default 0,
+last_update int unsigned not null default 0,
+unique goods_sn (goods_sn)
+)engine myisam charset utf8;
+
+
+栏目表
+create table category (
+cat_id smallint unsigned primary key auto_increment,
+cat_name varchar(10) not null default '',
+parent_id smallint unsigned not null default 0
+) engine myisam charset utf8;
+
+用户表
+create table user (
+user_id int unsigned primary key auto_increment,
+username varchar(30) not null default '',
+passwd char(32) not null default '',
+email varchar(50) not null default '',
+unique username (username),
+unique email (email)
+)engine myisam charset utf8;
+
+
+
+
+
+
+
+//=====大网站中的数据删除=======//
+设有商品 goods_id = 999
+
+因为此商品形成的订单都引用到这个"999"
+订单1 999 5
+
+对此商品的评论
+评论5 999 '好商品'
+
+对评论的评论,
+评论5 , 对我有用.....
+
+
+综上,数据的删除会影响到"下游的数据",就是引入到该数据的所有数据
+另外,如果删除,会在索引文件中形成空洞,影响速度.
+
+
+因此,原则不做物理删除,只做逻辑删除,或者叫标记删除.
+如果非要物理删除,就自下而上删除.
+即:先把引用该数据的所有数据删除掉.
+
+
+
+发现的问题:
+1:model有construct函数不断的重写-->继承来解决
+在插入的时候,要拼凑sql语句,非常麻烦.-->通过数组循环与字符串自动生成sql语句.
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<?php
+defined('ACC')||exit('Access Denied');
+
+function addslashes_real(&$str) {
+    $str = addslashes($str);
+}
+
+
+
+// 根据日期创建目录的操作
+function mk_dir() {
+    $path = ROOT . '/data/images/' . date('Ym',time());
+    if(is_dir($path)) {
+        return $path;
+    }
+    
+    return mkdir($path,'0777',true)?$path:false;
+}
+
+
+// 生成随机文件名
+function rand_name() {
+    return date('d',time()) . rand(100000,999999);
+}
+
+
+// 获取文件的后缀
+function get_ext($filename) {
+    return strtolower(pathinfo($filename,PATHINFO_EXTENSION));
+}
+
+
+// 检查文件后缀名
+function check_ext($ext) {
+    $allow = array('jpg','jpeg','gif','png','bmp');
+    return in_array($ext,$allow);
+}
+

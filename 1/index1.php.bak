@@ -1,0 +1,23 @@
+<?php
+define('ACC',true);
+/*
+假设首页需要读5条文章.
+*/
+require('includes/init.php');
+
+
+/*
+$db = mysql::getIns();
+
+$sql = 'select * from art limit 5';
+*/
+
+
+$artModel = new artModel();
+echo 'aaaa';
+
+
+
+
+
+

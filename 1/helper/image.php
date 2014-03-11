@@ -1,0 +1,141 @@
+<?php
+
+// 单独的图片处理类
+
+/*
+内部的函数相互调用的情况少,
+耦合性低,
+大部是调用系统的gd函数,即:函数各自孤立
+*/
+
+class image {
+    static protected $error = '';
+
+    // 分析图片信息
+    static public function getImgInfo($img) {
+        if(!file_exists($img)) {
+            self::$error = '图片不存在';
+
+            return false;
+        }
+
+        $imgInfo = getimagesize($img); // 获取图片信息,宽高,类型信息,不受gd库的影响.php自己的函数.
+        
+        if($imgInfo === false) {
+            self::$error = '无法正确读取图片信息';
+            return false;
+        }
+       //print_r($imgInfo); 测试是否成功读取图片信息. 
+        
+        $info = array();
+        $info['width'] = $imgInfo[0];
+        $info['height'] = $imgInfo[1];
+        $info['type'] = image_type_to_extension($imgInfo[2],false);
+        $info['mime'] = $imgInfo['mime'];
+
+        return $info;
+
+    }
+
+    //第二步; 生成缩略图函数
+    static public function thumb($ori,$width=230,$height=230) {
+        $info = self::getImgInfo($ori);
+        if($info === false) {
+            return false;
+        }
+        $scale = min($width/$info['width'],$height/$info['height']); // 计算缩小比例.在计算缩小比例时候,取长宽比的较小的值,以保障是按照正常缩放效果.
+
+        $tw = floor($scale * $info['width']); // 计算小图的宽
+        $th = floor($scale * $info['height']); // 计算小图的高.
+
+        $thumb = imagecreatetruecolor($width,$height); // 按参数创建画布
+        
+        // 小图补白
+        $white = imagecolorallocate($thumb,255,255,255);
+        imagefill($thumb,0,0,$white);
+
+        // 计算缩略时的偏移量
+        $offsetX = floor(($width - $tw) / 2);
+        $offsetY = floor(($height - $th) / 2);
+
+        // 把大图读出来
+        $createFun = 'imagecreatefrom' . $info['type'];
+        $src = $createFun($ori);
+
+        // 生成缩略小图
+        imagecopyresampled($thumb,$src,$offsetX,$offsetY,0,0,$tw,$th,$info['width'],$info['height']);
+        
+
+        // 生成图片并保存
+        $imageFun = 'image' . $info['type']; // 计算生成所用的函数名
+
+        if($width == 230) {
+            $newimg = str_replace('.','_goods.',$ori); // 生成缩略图的路径
+        } else if($width == 100) {
+            $newimg = str_replace('.','_thumb.',$ori); // 生成100的缩略图路径
+        } else {
+            $newimg = $ori;
+        }
+        
+  
+        if(!$imageFun($thumb,$newimg)) { // 生成并保存图片
+            self::$error = '生成图片失败';
+            return false;
+        } else {
+            if($width == 230){
+                $logo = ROOT.'data/logo.gif';
+                self::water($logo,$newimg,$offsetX,$offsetY);
+            }
+            return ltrim(str_replace(ROOT,'',$newimg),'/');
+        }
+
+        
+       //释放资源句柄.
+        @imagedestroy($thumb); // @符屏蔽函数有可能产生页面的错误
+        @imagedestroy($src);
+
+    }
+
+    // 加水印函数
+    static public function water($logo,$dct,$offsetX,$offsetY){
+        $src_res = self::getImgInfo($logo);
+        $dct_res = self::getImgInfo($dct);
+
+        if($src_res === false || $dct_res === false){
+            return false;
+        }
+        //创建logo资源的方法
+        $createSRC = 'imagecreatefrom'.$src_res['type'];
+
+        $src_r = $createSRC($logo);
+        //创建要水印的图片的方法
+        $createIMG = 'imagecreatefrom'.$dct_res['type'];
+        $dct_r = $createIMG($dct);
+        
+        //水印需要的偏移量
+        $px = $dct_res['width'] - $src_res['width'] - $offsetX;
+
+        $py = $dct_res['height'] - $src_res['height'] - $offsetY;
+
+        //根据资源的type信息,创建保存图片的方法
+        $createIMG = 'image'.$dct_res['type'];
+        //用刚才创建的方法,保存图像
+        $createIMG($dct_r,$dct);
+        @imagedestroy($dct_r);
+        @imagedestroy($src_r);
+    }
+}
+
+/*写中文的函数
+imagettftext ( resource image, int size, int angle, int x, int y, int color, string fontfile, string text)
+*/
+
+
+
+
+
+
+
+
+
+
