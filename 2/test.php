@@ -2,7 +2,7 @@
 
 header("Content-type:text/html;charset=utf-8");
 
-echo "用户名   :".SAE_MYSQL_USER."/r/n";
+echo "用户名   :".SAE_MYSQL_USER."\/r/n";
 
 echo "密码     :".SAE_MYSQL_PASS."/r/n";
 
