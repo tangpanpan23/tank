@@ -40,7 +40,16 @@ if(!get_magic_quotes_gpc()) {
 
 //初始化session
 session_start();
-echo "nihao"; echo __FILE__; echo ROOT;exit;
+echo "nihao"; echo __FILE__; echo ROOT;
+$db = mysql::getIns();
+print_r($db);
+echo "nihao"; exit;
+
+$sql = 'select * from employer limit 5';
+
+
+print_r($db->getAll($sql));
+exit;
 
 
 
