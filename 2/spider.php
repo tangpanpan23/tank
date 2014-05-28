@@ -18,6 +18,6 @@ return $content;
 $url = "http://www.baidu.com/";
 $CuteCrawler = new CuteCrawler;
 $content = $CuteCrawler->getContentByFopen($url);
-  
-var_dump($content);
+  echo($content);
+//var_dump($content);
 ?>
