@@ -43,7 +43,7 @@ session_start();
 echo "nihao"; 
 
 $db = mysql::getIns();
-var_dump($db);
+var_dump("$db");
 
 
 $sql = 'select * from user limit 5';
