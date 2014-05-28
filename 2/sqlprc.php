@@ -11,7 +11,7 @@ $conn=mysql_connect("w.rdc.sae.sina.com.cn:3307", "13y1nwyj2o", "y23mihlw1hlx0kk
 		 echo "连接失败!";
 		 }
  
- $sql ="explain select * from pan_pan ";
+ $sql ="explain select * from user ";
  $res = mysql_query($sql,$conn);
  $i=0;
  $arr = array();
