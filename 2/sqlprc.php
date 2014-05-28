@@ -1,7 +1,7 @@
 <?php
 
 header("Content-type:text/html;charset=utf-8");
-$conn=mysql_connect("w.rdc.sae.sina.com.cn:3307", "tangpanpan23@sina.com", "tangpanpan314");
+$conn=mysql_connect("w.rdc.sae.sina.com.cn:3307", "13y1nwyj2o", "y23mihlw1hlx0kkmk32wlwzil3yj54kjzy5401ky");
  $db = mysql_select_db("app_tangpanpan",$conn);
  if($conn)
 	 {
