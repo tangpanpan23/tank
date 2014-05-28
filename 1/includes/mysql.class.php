@@ -166,7 +166,7 @@ class mysql extends abs_db {
 
 
 
-/*require('./conf.class.php');
+/require('./conf.class.php');
 
 $db = mysql::getIns();
 print_r($db);
@@ -176,6 +176,6 @@ $sql = 'select * from employer limit 5';
 
 
 print_r($db->getAll($sql));
-*/
+exit;
 //此段代码用于测试数据库类是否成功.
 
