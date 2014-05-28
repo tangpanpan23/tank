@@ -170,7 +170,7 @@ class mysql extends abs_db {
 
 $db = mysql::getIns();
 print_r($db);
-echo "nihao";echo ROOT;exit;
+echo "nihao"; exit;
 
 $sql = 'select * from employer limit 5';
 
