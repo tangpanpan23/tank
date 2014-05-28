@@ -46,7 +46,7 @@ $db = mysql::getIns();
 print_r($db);
 
 
-$sql = 'select * from employer limit 5';
+$sql = 'select * from member limit 5';
 
 
 print_r($db->getAll($sql));
