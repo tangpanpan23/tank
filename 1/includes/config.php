@@ -4,7 +4,7 @@
 
 
 $_cfg = array();
-$_cfg['host'] = 'w.rdc.sae.sina.com.cn';
+$_cfg['host'] = 'w.rdc.sae.sina.com.cn:3307';
 $_cfg['user'] = '13y1nwyj2o';
 $_cfg['pwd'] = 'y23mihlw1hlx0kkmk32wlwzil3yj54kjzy5401ky';
 $_cfg['db'] = 'app_tangpanpan';
