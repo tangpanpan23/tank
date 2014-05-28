@@ -1,5 +1,5 @@
 <?php
-defined('ACC') || exit('access denied');
+//defined('ACC') || exit('access denied');
 /*
 网站的初始化文件
 负责计算当前网站的根目录
