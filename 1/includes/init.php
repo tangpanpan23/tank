@@ -49,7 +49,7 @@ var_dump($db);
 $sql = 'select * from member limit 5';
 
 
-print_r($db->getAll($sql));
+var_dump($db->getAll($sql));
 exit;
 
 
