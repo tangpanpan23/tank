@@ -40,7 +40,7 @@ if(!get_magic_quotes_gpc()) {
 
 //初始化session
 session_start();
-echo "nihao"; echo __FILE__; echo ROOT;
+echo "nihao"; 
 require('./conf.class.php');
 $db = mysql::getIns();
 var_dump($db);
