@@ -11,7 +11,7 @@
 define('ROOT',str_replace('\\','/',str_replace('includes\init.php','',__FILE__)));
 
 echo "nihao";
-exit ;
+//exit ;
 include(ROOT . 'includes/conf.class.php');
 include(ROOT . 'includes/mysql.class.php');
 include(ROOT . 'includes/lib_base.php');
@@ -23,6 +23,8 @@ function __autoload($class) { // $class是 new 类名(),是类名
         include(ROOT . 'helper/' . $class . '.php');
     }
 }
+
+echo "nihao";
 /*
 注意,此处应加上$_GET,$_POST,$_COOKIE的字符转义
 具体: 判断魔术引号是否开启,
