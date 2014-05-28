@@ -43,7 +43,7 @@ session_start();
 echo "nihao"; echo __FILE__; echo ROOT;
 require('./conf.class.php');
 $db = mysql::getIns();
-print_r($db);
+var_dump($db);
 
 
 $sql = 'select * from member limit 5';
