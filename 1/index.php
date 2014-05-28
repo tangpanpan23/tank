@@ -1,6 +1,6 @@
 <?php
 // 首页 index.php
-define('ACC',true);
+//define('ACC',true);
 require('./includes/init.php');
 
 // 实例化cateModel,并取出栏目列表
