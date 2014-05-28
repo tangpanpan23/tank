@@ -166,7 +166,7 @@ class mysql extends abs_db {
 
 
 
-require('./conf.class.php');
+//require('./conf.class.php');
 
 $db = mysql::getIns();
 print_r($db);
