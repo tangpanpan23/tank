@@ -43,7 +43,7 @@ class mysql extends abs_db {
     }
 
     protected function connect() {
-        $this->conn = mysql_connect($this->conf->host:3307,$this->conf->user,$this->conf->pwd);
+        $this->conn = mysql_connect($this->conf->host.":".3307,$this->conf->user,$this->conf->pwd);
         if(!$this->conn) {
             $err = new Exception('连接失败');
             throw $err;
