@@ -46,7 +46,7 @@ $db = mysql::getIns();
 var_dump($db);
 
 
-$sql = 'select * from member limit 5';
+$sql = 'select * from user limit 5';
 
 
 var_dump($db->getAll($sql));
