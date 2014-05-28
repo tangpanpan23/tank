@@ -24,7 +24,7 @@ function __autoload($class) { // $class是 new 类名(),是类名
     }
 }
 
-echo "nihao";exit;
+echo "nihao";echo ROOT;exit;
 /*
 注意,此处应加上$_GET,$_POST,$_COOKIE的字符转义
 具体: 判断魔术引号是否开启,
