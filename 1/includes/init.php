@@ -40,7 +40,7 @@ if(!get_magic_quotes_gpc()) {
 
 //初始化session
 session_start();
-echo "nihao";print_r（"_FILE_"）;exit;
+echo "nihao";var_dump（"_FILE_"）;exit;
 
 
 
