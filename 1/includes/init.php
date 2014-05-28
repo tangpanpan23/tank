@@ -32,13 +32,13 @@ function __autoload($class) { // $class是 new 类名(),是类名
 如果未开启,则把$_GET,$_POST,$_COOKIE
 递归的转义一遍
 */
-/*
+
 if(!get_magic_quotes_gpc()) {
     array_walk_recursive($_GET,'addslashes_real');
     array_walk_recursive($_POST,'addslashes_real');
     array_walk_recursive($_COOKIE,'addslashes_real');
 }
-*/
+
 //初始化session
 session_start();
 
