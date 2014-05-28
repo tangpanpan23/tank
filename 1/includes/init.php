@@ -24,21 +24,24 @@ function __autoload($class) { // $class是 new 类名(),是类名
     }
 }
 
-echo "nihao";
-exit;
+//echo "nihao";
+//exit;
 /*
 注意,此处应加上$_GET,$_POST,$_COOKIE的字符转义
 具体: 判断魔术引号是否开启,
 如果未开启,则把$_GET,$_POST,$_COOKIE
 递归的转义一遍
 */
+/*
 if(!get_magic_quotes_gpc()) {
     array_walk_recursive($_GET,'addslashes_real');
     array_walk_recursive($_POST,'addslashes_real');
     array_walk_recursive($_COOKIE,'addslashes_real');
 }
+*/
 //初始化session
 session_start();
+
 
 
 
