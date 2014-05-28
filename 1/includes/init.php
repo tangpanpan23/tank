@@ -40,7 +40,7 @@ if(!get_magic_quotes_gpc()) {
 
 //初始化session
 session_start();
-echo "nihao"; echo（"ROOT"）;exit;
+echo "nihao"; echo（ROOT）;exit;
 
 
 
