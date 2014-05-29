@@ -6,7 +6,7 @@ require('./includes/init.php');
 // 实例化cateModel,并取出栏目列表
 $cateModel = new cateModel();
 $cateList = $cateModel->cateList();
-print_r($cateList);exit;
+//print_r($cateList);exit;
 
 // 实例化goodsModel
 $goodsModel = new goodsModel();
