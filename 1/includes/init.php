@@ -41,19 +41,7 @@ if(!get_magic_quotes_gpc()) {
 
 //初始化session
 session_start();
-echo "nihao"; 
-echo ROOT.'includes/mysql.class.php';
-echo ROOT;
 
-$db = mysql::getIns();
-var_dump("$db");
-
-
-$sql = 'select * from user limit 5';
-
-
-var_dump($db->getAll($sql));
-exit;
 
 
 
