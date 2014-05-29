@@ -19,6 +19,6 @@ $conn=mysql_connect("w.rdc.sae.sina.com.cn:3307", "13y1nwyj2o", "y23mihlw1hlx0kk
  $arr[$i++] = $row;
  };
   var_dump($res);
- var_dump($arr);
+//var_dump($arr);
 
 ?>
