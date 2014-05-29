@@ -42,6 +42,7 @@ if(!get_magic_quotes_gpc()) {
 session_start();
 echo "nihao"; 
 echo ROOT.'includes/mysql.class.php';
+echo ROOT;
 
 $db = mysql::getIns();
 var_dump("$db");
