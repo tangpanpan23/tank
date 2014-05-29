@@ -10,9 +10,9 @@ defined('ACC') || exit('access denied');
 // ROOT 代表网站的根路径
 //define('ROOT',str_replace('\\','/',str_replace('includes\init.php','',__FILE__)));
 define('ROOT',str_replace('includes/init.php','',__FILE__));
-echo "nihao";
-echo ROOT;
-exit ;
+//echo "nihao";
+//echo ROOT;
+//exit ;
 include(ROOT . 'includes/conf.class.php');
 include(ROOT . 'includes/mysql.class.php');
 include(ROOT . 'includes/lib_base.php');
