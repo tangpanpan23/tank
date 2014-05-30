@@ -7,7 +7,7 @@ defined('ACC') || exit('access denied');
 
 */
 //禁止报错
-error_reporting(E_ALL);
+error_reporting(0);
 // ROOT 代表网站的根路径
 //define('ROOT',str_replace('\\','/',str_replace('includes\init.php','',__FILE__)));
 define('ROOT',str_replace('includes/init.php','',__FILE__));
