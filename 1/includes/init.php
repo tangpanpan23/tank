@@ -6,7 +6,8 @@ defined('ACC') || exit('access denied');
 负责 引入所有页面都需要的引入的公共文件.
 
 */
-
+//禁止报错
+error_reporting(E_ALL)；
 // ROOT 代表网站的根路径
 //define('ROOT',str_replace('\\','/',str_replace('includes\init.php','',__FILE__)));
 define('ROOT',str_replace('includes/init.php','',__FILE__));
