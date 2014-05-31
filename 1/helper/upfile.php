@@ -51,7 +51,7 @@ class upfile {
         // 把上传文件数组信息放到info属性上.
         $this->info = $_FILES[$name];
 
-
+         echo $this->info;exit;
         // 产生文件过大,等等错误
         $err = array(1=>'上传的文件超过了 php.ini 中 upload_max_filesize 选项限制的值',
                      2=>'上传文件的大小超过了 HTML 表单中 MAX_FILE_SIZE 选项指定的值',
