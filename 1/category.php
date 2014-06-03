@@ -171,7 +171,7 @@ $hotlist = $goodsModel->getTop('hot',6);
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="navbg">
+                    <a href="category.php?cat_id=3" id="navbg">
                         GSM手机
                     </a>
                 </li>
@@ -181,7 +181,7 @@ $hotlist = $goodsModel->getTop('hot',6);
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="category.php?cat_id=6">
                         手机配件
                     </a>
                 </li>
