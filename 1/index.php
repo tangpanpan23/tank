@@ -123,7 +123,7 @@ $hotlist = $goodsModel->getTop('hot',6);
                     </a>
                 </li>
                 <li>
-                    <a href="#" >
+                    <a href="category.php?cat_id=3" >
                         GSM手机
                     </a>
                 </li>
