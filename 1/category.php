@@ -185,9 +185,9 @@ $hotlist = $goodsModel->getTop('hot',6);
                         手机配件
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        留言板
+               <li>
+                    <a href="./admin/index.html">
+                        进入后台管理
                     </a>
                 </li>
             </ul>
