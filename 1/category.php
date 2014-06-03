@@ -176,12 +176,12 @@ $hotlist = $goodsModel->getTop('hot',6);
                     </a>
                 </li>
                 <li>
-                    <a href="category.php?cat_id=18">
+                    <a href="category.php?cat_id=18" id="navbg">
                         镶钻手机
                     </a>
                 </li>
                 <li>
-                    <a href="category.php?cat_id=6">
+                    <a href="category.php?cat_id=6" id="navbg">
                         手机配件
                     </a>
                 </li>
