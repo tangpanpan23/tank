@@ -176,8 +176,8 @@ $hotlist = $goodsModel->getTop('hot',6);
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        双模手机
+                    <a href="category.php?cat_id=18">
+                        镶钻手机
                     </a>
                 </li>
                 <li>
