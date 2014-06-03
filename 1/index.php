@@ -139,7 +139,7 @@ $hotlist = $goodsModel->getTop('hot',6);
                 </li>
                 <li>
                     <a href="#">
-                        留言板
+                        有待开发功能
                     </a>
                 </li>
                
