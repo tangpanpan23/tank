@@ -142,11 +142,7 @@ $hotlist = $goodsModel->getTop('hot',6);
                         留言板
                     </a>
                 </li>
-                <li>
-                    <a href="./admin/index.html">
-                        进入后台管理
-                    </a>
-                </li>
+               
             </ul>
         </div>
         <DIV class="navr_recent">
